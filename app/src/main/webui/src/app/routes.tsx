@@ -35,56 +35,56 @@ const routes: AppRouteConfig[] = [
     component: () => <Redirect to="/ClaimsList" />,
     exact: true,
     path: '/',
-    title: 'Redirect',
+    title: 'Airline Customer Service Portal',
   },
   {
     component: Empty,
-    label: 'Dashboard',
+    label: 'Service Overview',
     path: '#',
-    title: 'Dashboard'
+    title: 'Customer Service Overview'
   },
   {
     component: Empty,
-    label: 'Policies',
+    label: 'Flight Policies',
     path: '#',
-    title: 'Policies'
+    title: 'Airline Policies & Procedures'
   },
   {
     component: ClaimsList,
     exact: true,
-    label: 'Claims',
+    label: 'Customer Cases',
     path: '/ClaimsList',
-    title: 'Claims List',
+    title: 'Customer Complaints & Claims',
   },
   {
     component: ClaimDetail,
     exact: true,
     path: '/ClaimDetail/:claim_id',
-    title: 'Claim Detail',
+    title: 'Customer Case Details',
   },
   {
     component: Empty,
-    label: 'Coverages',
+    label: 'Travel Insurance',
     path: '#',
-    title: 'Coverages'
+    title: 'Travel Insurance & Coverage'
   },
   {
     component: Empty,
-    label: 'Annuities',
+    label: 'Loyalty Program',
     path: '#',
-    title: 'Annuities'
+    title: 'Loyalty Program Benefits'
   },
   {
     component: Empty,
-    label: 'Subscriptions',
+    label: 'Premium Services',
     path: '#',
-    title: 'Subscriptions'
+    title: 'Premium Services & Subscriptions'
   },
   {
     component: Empty,
-    label: 'Reports',
+    label: 'Service Analytics',
     path: '#',
-    title: 'Reports'
+    title: 'Customer Service Analytics'
   },
   // {
   //   component: EmailGenerate,

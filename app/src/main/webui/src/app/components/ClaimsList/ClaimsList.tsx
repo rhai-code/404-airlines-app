@@ -66,10 +66,10 @@ const ClaimsList: React.FunctionComponent = () => {
 
     const columnNames = {
         id: 'ID',
-        claim_number: 'Claim Number',
+        claim_number: 'Case Number',
         category: 'Category',
-        client_name: 'Client Name',
-        policy_number: 'Policy Number',
+        client_name: 'Customer Name',
+        policy_number: 'Booking Reference',
         status: 'Status'
     }
 
@@ -135,7 +135,7 @@ const ClaimsList: React.FunctionComponent = () => {
         <Page>
             <PageSection>
                 <TextContent>
-                    <Text component={TextVariants.h1}>Claims</Text>
+                    <Text component={TextVariants.h1}>Customer Service Cases</Text>
                 </TextContent>
             </PageSection>
             <PageSection>
@@ -160,9 +160,10 @@ const ClaimsList: React.FunctionComponent = () => {
                             className="claims-list-filter-select"
                         >
                             <FormSelectOption key={0} value="Any category" label="Any category" />
-                            <FormSelectOption key={1} value="Single vehicle" label="Single vehicle" />
-                            <FormSelectOption key={2} value="Multiple vehicle" label="Multiple vehicle" />
-                            <FormSelectOption key={3} value="Theft" label="Theft" />
+                            <FormSelectOption key={1} value="Flight Delay" label="Flight Delay" />
+                            <FormSelectOption key={2} value="Lost Luggage" label="Lost Luggage" />
+                            <FormSelectOption key={3} value="Customer Service" label="Customer Service" />
+                            <FormSelectOption key={4} value="Booking Issue" label="Booking Issue" />
                         </FormSelect>
                     </FlexItem>
                     <FlexItem>

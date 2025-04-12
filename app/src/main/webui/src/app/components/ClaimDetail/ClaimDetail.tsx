@@ -73,7 +73,7 @@ const ClaimDetail: React.FunctionComponent<ClaimProps> = () => {
     <Page>
       <PageSection>
         <Breadcrumb ouiaId="BasicBreadcrumb" className='simple-padding'>
-          <BreadcrumbItem to="/ClaimsList">&lt; Back to claims</BreadcrumbItem>
+          <BreadcrumbItem to="/ClaimsList">&lt; Back to cases</BreadcrumbItem>
         </Breadcrumb>
         <Grid span={12} hasGutter className='padding-top-25'>
           <GridItem span={8}>
@@ -103,7 +103,7 @@ const ClaimDetail: React.FunctionComponent<ClaimProps> = () => {
                   <FlexItem>
                     <TextContent>
                       <Text className='colored-item-blue'>
-                        <FontAwesomeIcon icon={faShieldHalved} />&nbsp;{claim.policy_number ? claim.policy_number : 'No policy number specified'}
+                        <FontAwesomeIcon icon={faShieldHalved} />&nbsp;{claim.policy_number ? claim.policy_number : 'No booking reference specified'}
                       </Text>
                     </TextContent>
                   </FlexItem>
@@ -160,10 +160,11 @@ const ClaimDetail: React.FunctionComponent<ClaimProps> = () => {
                           </GridItem>
                         </Grid>
                       </Tab>
-                      <Tab eventKey={1} title={<TabTitleText>Insurance</TabTitleText>} aria-label="Insurance" isDisabled></Tab>
-                      <Tab eventKey={2} title={<TabTitleText>Damages</TabTitleText>} aria-label="Damages" isDisabled></Tab>
-                      <Tab eventKey={3} title={<TabTitleText>Witnesses</TabTitleText>} aria-label="Witnesses" isDisabled></Tab>
-                      <Tab eventKey={4} title={<TabTitleText>Documents</TabTitleText>} aria-label="Documents">
+                      <Tab eventKey={1} title={<TabTitleText>Flight Details</TabTitleText>} aria-label="Flight Details" isDisabled></Tab>
+                      <Tab eventKey={2} title={<TabTitleText>Compensation</TabTitleText>} aria-label="Compensation" isDisabled></Tab>
+                      <Tab eventKey={3} title={<TabTitleText>Supporting Documents</TabTitleText>} aria-label="Supporting Documents" isDisabled></Tab>
+                      <Tab eventKey={4} title={<TabTitleText>Witnesses</TabTitleText>} aria-label="Witnesses" isDisabled></Tab>
+                      <Tab eventKey={5} title={<TabTitleText>Documents</TabTitleText>} aria-label="Documents">
                         <Accordion isBordered asDefinitionList={false} className='padding-top-25'>
                           <AccordionItem>
                             <AccordionToggle
@@ -185,7 +186,7 @@ const ClaimDetail: React.FunctionComponent<ClaimProps> = () => {
                           </AccordionItem>
                         </Accordion>
                       </Tab>
-                      <Tab eventKey={5} title={<TabTitleText>Comments</TabTitleText>} aria-label="Comments" isDisabled></Tab>
+                      <Tab eventKey={6} title={<TabTitleText>Comments</TabTitleText>} aria-label="Comments" isDisabled></Tab>
                     </Tabs>
                   </FlexItem>
                 </Flex>
