@@ -1,6 +1,6 @@
 import config from '@app/config';
 import { faCalendarDays, faCommentDots, faFaceSmile, faFileLines } from '@fortawesome/free-regular-svg-icons';
-import { faCaretDown, faLocationDot, faRectangleList, faShieldHalved, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faLocationDot, faRectangleList, faPlane, faShieldHalved, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Accordion, AccordionContent, AccordionItem, AccordionToggle, Breadcrumb, BreadcrumbItem, Button, Card, CardBody, Divider, Flex, FlexItem, Grid, GridItem, Label, Page, PageSection, Tab, Tabs, TabTitleText, Text, TextContent, TextVariants, Title } from '@patternfly/react-core';
 import axios from 'axios';
@@ -69,6 +69,17 @@ const ClaimDetail: React.FunctionComponent<ClaimProps> = () => {
         'In Process': 'gold'
     };
 
+  // Helper to generate a random 6-character booking code
+  const generateBookingCode = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let code = '';
+    for (let i = 0; i < 6; i++) {
+      code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return code;
+  };
+  const bookingCode = React.useMemo(() => generateBookingCode(), []);
+
   return (
     <Page>
       <PageSection>
@@ -76,7 +87,7 @@ const ClaimDetail: React.FunctionComponent<ClaimProps> = () => {
           <BreadcrumbItem to="/ClaimsList">&lt; Back to cases</BreadcrumbItem>
         </Breadcrumb>
         <Grid span={12} hasGutter className='padding-top-25'>
-          <GridItem span={8}>
+          <GridItem span={12}>
             <Card isRounded={true} className='width-100'>
               <CardBody>
                 <Flex className='padding-bottom-25'>
@@ -103,12 +114,12 @@ const ClaimDetail: React.FunctionComponent<ClaimProps> = () => {
                   <FlexItem>
                     <TextContent>
                       <Text className='colored-item-blue'>
-                        <FontAwesomeIcon icon={faShieldHalved} />&nbsp;{claim.policy_number ? claim.policy_number : 'No booking reference specified'}
+                        <FontAwesomeIcon icon={faPlane} />&nbsp;{bookingCode}
                       </Text>
                     </TextContent>
                   </FlexItem>
                   <FlexItem>
-                    <Button className="disabled-link" variant="primary" isDisabled={true}>Edit</Button>
+                    <Button variant="primary">Manage Booking</Button>
                   </FlexItem>
                 </Flex>
                 <Flex>
@@ -190,13 +201,6 @@ const ClaimDetail: React.FunctionComponent<ClaimProps> = () => {
                     </Tabs>
                   </FlexItem>
                 </Flex>
-              </CardBody>
-            </Card>
-          </GridItem>
-          <GridItem span={4}>
-            <Card isRounded={true} className='width-100'>
-              <CardBody>
-                {(claim && claim.processed_images) ? <ImageCarousel images={claim.processed_images} /> : 'No images attached'}
               </CardBody>
             </Card>
           </GridItem>

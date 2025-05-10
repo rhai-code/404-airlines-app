@@ -5,6 +5,7 @@ import { Table, Tbody, Td, Th, Thead, ThProps, Tr } from '@patternfly/react-tabl
 import axios from 'axios';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { generateBookingCode } from '@app/utils/generateBookingCode';
 
 interface Row {
     id: number;
@@ -203,7 +204,7 @@ const ClaimsList: React.FunctionComponent = () => {
                                     </Td>
                                     <Td dataLabel={columnNames.category}>{row.category}</Td>
                                     <Td dataLabel={columnNames.client_name}>{row.client_name}</Td>
-                                    <Td dataLabel={columnNames.policy_number}>{row.policy_number}</Td>
+                                    <Td dataLabel={columnNames.policy_number}>{generateBookingCode(row.claim_number)}</Td>
                                     <Td dataLabel={columnNames.status}><Label color={labelColors[row.status] || 'default'}>{row.status}</Label></Td>
                                 </Tr>
                             ))}
